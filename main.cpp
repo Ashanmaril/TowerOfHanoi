@@ -15,7 +15,5 @@ int main() {
     
     std::cout << "Hanoi:" << std::endl;
     
-    h.printHanoi();
-    
     return 0;
 }

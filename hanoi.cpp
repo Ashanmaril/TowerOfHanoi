@@ -98,9 +98,9 @@ Hanoi::Hanoi()
 {
     while(true)
     {
-        std::cout << "Input n: ";
+        std::cout << "Input n (between 1 and 10): ";
         std::cin >> size;
-        if(std::cin && size >= 0 && size <= MAX_SIZE)
+        if(std::cin && size > 0 && size <= MAX_SIZE)
             break;
         
         std::cin.clear();
@@ -110,22 +110,10 @@ Hanoi::Hanoi()
     A = *new Peg(size);
     B = *new Peg;
     C = *new Peg;
-    
-    std::cout << "Peg A: " << std::endl;
-    A.printPeg();
-    std::cout << "Peg B: " << std::endl;
-    B.printPeg();
-    std::cout << "Peg C: " << std::endl;
-    C.printPeg();
+
+    printHanoi();
     
     hanoi(size, A, C, B);
-    
-    std::cout << "Peg A: " << std::endl;
-    A.printPeg();
-    std::cout << "Peg B: " << std::endl;
-    B.printPeg();
-    std::cout << "Peg C: " << std::endl;
-    C.printPeg();
     
 }
 
@@ -139,6 +127,8 @@ void Hanoi::hanoi(int n, Peg& p1, Peg& p3, Peg& p2)
         p1.remove(temp);
         p3.add(temp);
         
+        printHanoi();
+        
         hanoi(n-1, p2, p3, p1);
     }
 }
@@ -150,27 +140,27 @@ void Hanoi::printHanoi() const
 
 void printTowers(const int& n, const Peg& p1, const Peg& p2, const Peg& p3)
 {
-    for(int i = 0; i < nUser; i++)
+    for(int i = nUser; i > 0; i--)
     {
         /* peg 1 */
-        for(int j = 0; j < p1.stack[i].getSize(); j++)
+        for(int j = 0; j < p1.stack[i - 1].getSize(); j++)
             std::cout << 'x';
-        for(int j = 0; j < nUser - p1.stack[i].getSize(); j++)
+        for(int j = 0; j < nUser - p1.stack[i - 1].getSize(); j++)
             std::cout << ' ';
         std::cout << ' ';
         
         
         /* peg 2 */
-        for(int j = 0; j < p2.stack[i].getSize(); j++)
+        for(int j = 0; j < p2.stack[i - 1].getSize(); j++)
             std::cout << 'x';
-        for(int j = 0; j < nUser - p2.stack[i].getSize(); j++)
+        for(int j = 0; j < nUser - p2.stack[i - 1].getSize(); j++)
             std::cout << ' ';
         std::cout << ' ';
         
         /* peg 3 */
-        for(int j = 0; j < p3.stack[i].getSize(); j++)
+        for(int j = 0; j < p3.stack[i - 1].getSize(); j++)
             std::cout << 'x';
-        for(int j = 0; j < nUser - p3.stack[i].getSize(); j++)
+        for(int j = 0; j < nUser - p3.stack[i - 1].getSize(); j++)
             std::cout << ' ';
         
         std::cout << std::endl;
