@@ -13,7 +13,5 @@ int main() {
     
     Hanoi h;
     
-    std::cout << "Hanoi:" << std::endl;
-    
     return 0;
 }

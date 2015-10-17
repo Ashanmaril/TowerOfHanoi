@@ -165,6 +165,8 @@ void printTowers(const int& n, const Peg& p1, const Peg& p2, const Peg& p3)
         
         std::cout << std::endl;
     }
+    
+    std::cout << std::endl;
 
 }
 
