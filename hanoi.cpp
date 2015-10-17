@@ -149,23 +149,32 @@ void Hanoi::printHanoi() const
 
 void printTowers(const int& n, const Peg& p1, const Peg& p2, const Peg& p3)
 {
-    /* each loop prints out 1 disk in the stack */
-    for(int i = nUser; i > 0; i--)
+    for(int i = 0; i < nUser; i++)
     {
-        /* print out amount of x's on each disk based on its size */
-        for(int j = 0; j < p1.stack[i-1].getSize(); j++)
-        {
+        /* peg 1 */
+        for(int j = 0; j < p1.height; j++)
             std::cout << 'x';
-        }
-        
-        /* print out spaces to make each stack printout a block*/
-        for(int j = 0; j < nUser - p1.stack[i-1].getSize(); j++)
-        {
+        for(int j = 0; j < nUser - p1.height; j++)
             std::cout << ' ';
-        }
-        std::cout << "  end";
+        std::cout << ' ';
         
+        
+        /* peg 2 */
+        for(int j = 0; j < p2.height; j++)
+            std::cout << 'x';
+        for(int j = 0; j < nUser - p2.height; j++)
+            std::cout << ' ';
+        std::cout << ' ';
+        
+        /* peg 3 */
+        for(int j = 0; j < p3.height; j++)
+            std::cout << 'x';
+        for(int j = 0; j < nUser - p3.height; j++)
+            std::cout << ' ';
+        
+        std::cout << std::endl;
     }
+
 }
 
 

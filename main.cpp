@@ -12,7 +12,10 @@
 int main() {
     
     Hanoi h;
-    //h.printHanoi();
+    
+    std::cout << "Hanoi:" << std::endl;
+    
+    h.printHanoi();
     
     return 0;
 }
