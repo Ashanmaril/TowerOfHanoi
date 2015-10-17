@@ -11,7 +11,8 @@
 
 int main() {
     
-    Hanoi h;
+    Hanoi h; //create instance of Hanoi class
+    h.begin(); //being solving
     
     return 0;
 }

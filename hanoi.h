@@ -9,15 +9,15 @@
 #ifndef hanoi_h
 #define hanoi_h
 
-static const int MAX_SIZE = 10;
-static int nUser;
+static const int MAX_SIZE = 15; //global constant for maximum size
+static int nUser; //
 
 class Disk {
 private:
-    int size;
+    int size; //stores the size of the disk
 public:
-    Disk(){size = 0;}
-    Disk(int s);
+    Disk(){size = 0;} //default constructor
+    Disk(int s); //constructor with size given
     int getSize() const {return size;}
     
 };
@@ -29,21 +29,22 @@ private:
     //int nUser; //tracks original height
     
 public:
-    Peg();
-    Peg(int);
-    void remove(Disk&);
-    void add(const Disk&);
-    void printPeg() const;
+    Peg(); //default constructor, makes empty peg
+    Peg(int); //constructor with N given, creates stack from bottom up starting at n
+    void remove(Disk&); //removes a disk, passes it into Disk argument
+    void add(const Disk&); //adds a disk from given disk parameter
+    void printPeg() const; //prints out a peg, used for testing
     
-    friend void printTowers(const int&, const Peg&, const Peg&, const Peg&) ;
+    friend void printTowers(const int&, const Peg&, const Peg&, const Peg&); //friend function for printing out 3 towers
 };
 
 class Hanoi {
 private:
-    Peg A, B, C;
-    int size;
+    Peg A, B, C; //3 towers for use in simulation
+    int size; //size
 public:
     Hanoi();
+    void begin();
     void hanoi(int, Peg&, Peg&, Peg&);
     void printHanoi() const;
 };

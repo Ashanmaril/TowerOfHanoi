@@ -98,7 +98,7 @@ Hanoi::Hanoi()
 {
     while(true)
     {
-        std::cout << "Input n (between 1 and 10): ";
+        std::cout << "Input n (between 1 and " << MAX_SIZE << "): ";
         std::cin >> size;
         if(std::cin && size > 0 && size <= MAX_SIZE)
             break;
@@ -110,11 +110,13 @@ Hanoi::Hanoi()
     A = *new Peg(size);
     B = *new Peg;
     C = *new Peg;
+    
+}
 
+void Hanoi::begin()
+{
     printHanoi();
-    
     hanoi(size, A, C, B);
-    
 }
 
 void Hanoi::hanoi(int n, Peg& p1, Peg& p3, Peg& p2)
