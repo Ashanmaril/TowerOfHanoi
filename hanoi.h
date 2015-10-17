@@ -43,10 +43,10 @@ private:
     Peg A, B, C; //3 towers for use in simulation
     int size; //size
 public:
-    Hanoi();
-    void begin();
-    void hanoi(int, Peg&, Peg&, Peg&);
-    void printHanoi() const;
+    Hanoi(); //constructor
+    void begin(); //function called to begin solving
+    void hanoi(int, Peg&, Peg&, Peg&); //recursive function, stores main algorithm
+    void printHanoi() const; //prints out all 3 pegs
 };
 
 #endif /* hanoi_h */
