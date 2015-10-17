@@ -90,6 +90,7 @@ void Peg::add(const Disk & d)
 void Peg::remove(Disk & d)
 {
     d = stack[height - 1]; //set given disk to the top disk in the stack.
+    stack[height - 1] = *new Disk;
     height--; //decrement height
 }
 
@@ -152,24 +153,24 @@ void printTowers(const int& n, const Peg& p1, const Peg& p2, const Peg& p3)
     for(int i = 0; i < nUser; i++)
     {
         /* peg 1 */
-        for(int j = 0; j < p1.height; j++)
+        for(int j = 0; j < p1.stack[i].getSize(); j++)
             std::cout << 'x';
-        for(int j = 0; j < nUser - p1.height; j++)
+        for(int j = 0; j < nUser - p1.stack[i].getSize(); j++)
             std::cout << ' ';
         std::cout << ' ';
         
         
         /* peg 2 */
-        for(int j = 0; j < p2.height; j++)
+        for(int j = 0; j < p2.stack[i].getSize(); j++)
             std::cout << 'x';
-        for(int j = 0; j < nUser - p2.height; j++)
+        for(int j = 0; j < nUser - p2.stack[i].getSize(); j++)
             std::cout << ' ';
         std::cout << ' ';
         
         /* peg 3 */
-        for(int j = 0; j < p3.height; j++)
+        for(int j = 0; j < p3.stack[i].getSize(); j++)
             std::cout << 'x';
-        for(int j = 0; j < nUser - p3.height; j++)
+        for(int j = 0; j < nUser - p3.stack[i].getSize(); j++)
             std::cout << ' ';
         
         std::cout << std::endl;
