@@ -12,4 +12,4 @@ $(FILE1).o: $(FILE1).cpp $(FILE1).h
 	$(COMPILER) -c $(FILE1).cpp $(FILE1).h
 
 clean:
-	rm *.o
+	rm *.o *.gch
